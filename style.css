@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  background-color: #f0f0f0;
+  color: #333;
+  text-align: center;
+}
+header {
+  position: relative;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  color: #4caf50;
+}
+
+#darkMode {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 8px 16px;
+}
+.addContent {
+  width: 70%;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+}
+input[type="text"] {
+  width: 70%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+button {
+  background-color: #fff;
+  padding: 10px 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 16px;
+}
+button:hover {
+  background-color: #45a049;
+}
+
+ul {
+  list-style: none;
+  margin: 20px auto;
+  width: 80%;
+}
+ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #eeecec;
+  border-radius: 6px;
+  animation: fadeSlide 0.6s ease;
+}
+
+li button {
+  /* margin-left: 10px; */
+  padding: 10px;
+  transition: 0.2s ease;
+}
+li button:first-of-type {
+  margin-left: auto;
+}
+li button:nth-child(2):hover {
+  background-color: red;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+body.dark .addContent {
+  background-color: #1e1e1e;
+}
+
+body.dark input[type="text"] {
+  background-color: #2a2a2a;
+  color: white;
+  border: 1px solid #555;
+}
+
+body.dark ul li {
+  background-color: #2b2b2b;
+  color: white;
+}
+
+body.dark button {
+  background-color: #00c853;
+}
+
+body.dark button:hover {
+  background-color: #00a844;
+}
+
+body.dark li button:nth-child(2):hover {
+  background-color: red;
+}
+
+@media screen and (max-width: 768px) {
+  .addContent {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+    height: 100vh;
+  }
+  #inputForm {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  ul {
+    list-style: none;
+    margin: 20px auto;
+    width: 100%;
+  }
+  header {
+    position: relative;
+    padding: 20px;
+    text-align: center;
+  }
+
+  header h1 {
+    color: #4caf50;
+    font-size: 26px;
+  }
+
+  #darkMode {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 8px 8px;
+  }
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

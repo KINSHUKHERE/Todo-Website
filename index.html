@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List App</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Todo List app</h1>
+      <button id="darkMode">Dark Mode</button>
+    </header>
+
+    <div class="addContent">
+      <form id="inputForm">
+        <input
+          type="text"
+          name="addTask"
+          id="addTask"
+          placeholder="Add Task Here"
+          required
+        />
+        <button id="submitBtn">Add</button>
+      </form>
+      <ul class="addList"></ul>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>
