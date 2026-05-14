@@ -31,6 +31,9 @@ submitBtn.addEventListener("click", (e) => {
   });
   deletedBtn.addEventListener("click", (e) => {
     newLi.remove();
+    const updatedTasks = arrTask.filter((item) => item !== task);
+
+    localStorage.setItem("Task", JSON.stringify(updatedTasks));
   });
 
   addTask.value = "";
@@ -57,6 +60,10 @@ function createTask(task) {
 
   deletedBtn.addEventListener("click", () => {
     newLi.remove();
+
+    const updatedTasks = arrTask.filter((item) => item !== task);
+
+    localStorage.setItem("Task", JSON.stringify(updatedTasks));
   });
 }
 
