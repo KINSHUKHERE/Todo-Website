@@ -1,43 +1,33 @@
 const submitBtn = document.getElementById("submitBtn");
 const addTask = document.getElementById("addTask");
-const arrTask = JSON.parse(localStorage.getItem("Task")) || [];
-arrTask.forEach((task) => {
-  createTask(task);
+const darkModeBtn = document.getElementById("darkMode");
+
+let arrTask = JSON.parse(localStorage.getItem("Task")) || [];
+
+arrTask.forEach((taskObj) => {
+  createTask(taskObj);
 });
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
+
   if (addTask.value.trim() === "") {
     alert("Please enter a task");
     return;
   }
+
   const inputContent = addTask.value;
-  arrTask.push(inputContent);
+
+  const taskObj = {
+    id: Date.now(),
+    text: inputContent,
+  };
+
+  arrTask.push(taskObj);
+
   localStorage.setItem("Task", JSON.stringify(arrTask));
-  let newLi = document.createElement("li");
-  newLi.innerHTML = `
-    ${inputContent}
-    <button class="completed">Completed</button>
-    <button class="deleted">&times;</button>
-  `;
-  document.querySelector("ul").appendChild(newLi);
 
-  let completedBtn = newLi.querySelector(".completed");
-  let deletedBtn = newLi.querySelector(".deleted");
-
-  completedBtn.addEventListener("click", (e) => {
-    newLi.style.textDecoration = "line-through";
-    newLi.style.background = "red";
-  });
-  deletedBtn.addEventListener("click", (e) => {
-    newLi.remove();
-    const index = arrTask.indexOf(task);
-
-    if (index > -1) {
-      arrTask.splice(index, 1);
-    }
-    localStorage.setItem("Task", JSON.stringify(arrTask));
-  });
+  createTask(taskObj);
 
   addTask.value = "";
 });
@@ -46,12 +36,12 @@ function createTask(task) {
   let newLi = document.createElement("li");
 
   newLi.innerHTML = `
-    ${task}
+    ${task.text}
     <button class="completed">Completed</button>
     <button class="deleted">&times;</button>
   `;
 
-  document.querySelector("ul").appendChild(newLi);
+  document.querySelector(".addList").appendChild(newLi);
 
   let completedBtn = newLi.querySelector(".completed");
   let deletedBtn = newLi.querySelector(".deleted");
@@ -64,16 +54,12 @@ function createTask(task) {
   deletedBtn.addEventListener("click", () => {
     newLi.remove();
 
-    const index = arrTask.indexOf(task);
+    arrTask = arrTask.filter((item) => item.id !== task.id);
 
-    if (index > -1) {
-      arrTask.splice(index, 1);
-    }
     localStorage.setItem("Task", JSON.stringify(arrTask));
   });
 }
 
-const darkModeBtn = document.getElementById("darkMode");
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark");
   darkModeBtn.textContent = "Light Mode";
