@@ -1,5 +1,5 @@
 ````md
-# Todo Website
+# Todo List Website
 
 A simple and responsive Todo List application built using HTML, CSS, and JavaScript.  
 This project helps users manage daily tasks with features like task creation, deletion, completion status, and dark mode support.
