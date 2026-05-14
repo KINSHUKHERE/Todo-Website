@@ -31,9 +31,12 @@ submitBtn.addEventListener("click", (e) => {
   });
   deletedBtn.addEventListener("click", (e) => {
     newLi.remove();
-    const updatedTasks = arrTask.filter((item) => item !== task);
+    const index = arrTask.indexOf(task);
 
-    localStorage.setItem("Task", JSON.stringify(updatedTasks));
+    if (index > -1) {
+      arrTask.splice(index, 1);
+    }
+    localStorage.setItem("Task", JSON.stringify(arrTask));
   });
 
   addTask.value = "";
@@ -61,9 +64,12 @@ function createTask(task) {
   deletedBtn.addEventListener("click", () => {
     newLi.remove();
 
-    const updatedTasks = arrTask.filter((item) => item !== task);
+    const index = arrTask.indexOf(task);
 
-    localStorage.setItem("Task", JSON.stringify(updatedTasks));
+    if (index > -1) {
+      arrTask.splice(index, 1);
+    }
+    localStorage.setItem("Task", JSON.stringify(arrTask));
   });
 }
 
